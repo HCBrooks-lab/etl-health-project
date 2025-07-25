@@ -1,5 +1,7 @@
 # ETL Health Project: Diabetes Indicators Analysis
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 This project demonstrates a simple ETL (Extract, Transform, Load) pipeline & exploratory SQL analysis on a health indicators dataset. It focuses on identifying diabetes trends across age groups and gender using SQLite and Python (pandas). 
 
 
