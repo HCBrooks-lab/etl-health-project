@@ -2,13 +2,15 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-This project demonstrates a simple ETL (Extract, Transform, Load) pipeline & exploratory SQL analysis on a health indicators dataset. It focuses on identifying diabetes trends across age groups and gender using SQLite and Python (pandas). 
+This project demonstrates a simple ETL (Extract, Transform, Load) pipeline and exploratory SQL analysis using a health indicators dataset. The analysis focuses on diabetes trends by **age group** and **gender** using SQLite and Python (`pandas`).
 
+---
 
 ## Dataset
 
-The dataset used is stored locally as 'diabetes_health.db' and contains a single table 'health_indicators', from a cleaned CSV source. 
+The dataset is stored locally as `diabetes_health.db`, which contains a single table, `health_indicators`, transformed from a cleaned CSV file.
 
+---
 
 ## Tools & Technologies
 
@@ -17,89 +19,89 @@ The dataset used is stored locally as 'diabetes_health.db' and contains a single
 - SQLite3
 - VS Code
 
+---
 
 ## Project Structure
 
-health_etl_project/
--diabetes_health.db # SQLite database with health data.
--analyze_diabetes_sql.py # Main script for querying and analysis.
--etl_diabetes.py # Script for cleaning/loading the CSV into SQLite.
--README.md # Documentation. 
+1. diabetes_health.db: SQLite database with health data.
+2. diabetes_012_health_csv: Original csv source.
+3. etl_diabetes.py: Cleans and loads csv into SQLite.
+4. analyze_diabetes_sql.py: SQL queries and analysis.
+5. viz_diabetes.ipynd: Visualizations & insights.
+6. README.md: Documentation.
 
+---
 
 ## ETL Process Overview
 
-1. **Extraction:** Raw health data was originally loaded from a CSV file.
-2. **Transform:** Columns were cleaned and formatted; nulls were handled and
-   text fields were normalized using 'etl_diabetes.py'. 
-4. **Load:** Data was inserted into a SQLite database for effiecient querying
-   ('diabetes_health.db').
+1. **Extraction:** Raw health data loaded from CSV.
+2. **Transform:** Cleaned column names, handled missing values, normalized data using `etl_diabetes.py`.
+3. **Load:** Data inserted into a local SQLite database (`diabetes_health.db`).
 
+---
 
 ## Key SQL Queries
-### Query 1: Diabetes by Age Group
-### Query 2: Diabetes Rate by Gender
 
+- **Query 1:** Diabetes Rate by Age Group
+- **Query 2:** Diabetes Rate by Gender
+
+---
 
 ## Query Preview
 
 <details>
-  <summary>Click to view Query 1 (Diabetes by Age Group)</summary>
+<summary>Click to view Query 1 (Diabetes by Age Group)</summary>
 
 ```sql
-SELECT age_group, COUNT(*) AS total, 
-       SUM(diabetes_012) AS diabets_cases, 
+SELECT age_group, COUNT(*) AS total,
+       SUM(diabetes_012) AS diabetes_cases,
        ROUND(CAST(SUM(diabetes_012) AS FLOAT) / COUNT(*), 2) AS diabetes_rate
 FROM health_indicators
 GROUP BY age_group;
+
 </details>
 ```
+
+---
+
+## Visual Insights
+
+- Diabetes rates by age group (bar chart).
+- Diabetes rates by gender (bar chart).
+- Query validation included.
+
+---
 
 ## Features
 
 - Cleaned and transformed real-world health data.
-- Built and queried a local SQLite database.
-- SQL queuries grouped by key demographics.
-- Prepares groundwork for visualizations or dashboarding.
+- Built a local SQLite database for analysis.
+- Executed SQL queries grouped by key demographics.
+- Created reusable scripts for querying & visualization.
 
-## Limitations & Next Steps
+---
 
-## 1. Include More Demographic Data:
-   The current dataset lacks geogrphic or socioeconomic indictors. Adding zip code,        income level, or insurance status will allow for mor targeted public health 
-   recommendations. 
+## Limitations and Next Steps
 
-## 2. Time-Based Analysis:
-   Incorporating year-over-year data will allow for trend analysis, such as whether   
-   obesity or physical activity rates are increasing over time. 
+1. **More Demographics:** Current dataset lacks zip code, income level, and
+   insurance information.
+2. **Time Trends:** Add year-over-year data for trend analysis.
+3. **Predictive Modeling:** Expand to logistic regression or decision trees.
+4. **Interactive Dashboard:** Compare local results to CDC national data.
 
-## 3. Predictive Modeling:
-   With additional data, building a logistic representation regression or decision tree 
-   model can help predict diabetes likelihood based on user profiles. 
-
-## 4. Interactive Dashboard:
-   Cross-reference this sample with CDC national diabetes statistics to see how 
-   representative the data is. 
-   
-
+___
 
 ## How to Run
 
-1. Clone the Repo: git clone https://github.com/HCBrooks-lab/etl-health-
-   project.git
-   cd etl-health-project
+1. Clone the repo.
+2. Run analysis.
+3. Open visualization.
 
-2. Open analyze_diabetes_sql.py in your IDE or run: python
-   analyze_diabetes_sql.py
-
-## Future Improvements
-
-1. Add visualization such as bar plots for diabetes rate.
-2. Improve age grouping logic based on numeric age.
-3. Expand ETL script to allow reusable transformations.
+---
 
 ## Data Source
 
-The original dataset was sourced from [Kaggle], containing health-related indicators such as diabetes diagnosis, age, BMI, cholesterol, blood pressure, physical activity, etc. Since the original needed cleaning, it was transformed and loaded into a SQLite database ('diabetes_health.db') for this project. Please note some dataset download links may require a login or subscription. 
+The dataset was sourced from Kaggle, including diabetes indicators, age, BMI, cholesterol, blood pressure, and physical activity. Transformed and loaded into diabetes_health.db for this project. Some download links may require a Kaggle login. 
 
-Author: 
-H. Brooks
+## Author
+H. Brooks 
