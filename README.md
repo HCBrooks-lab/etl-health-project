@@ -60,7 +60,26 @@ GROUP BY age_group;
 - Cleaned and transformed real-world health data.
 - Built and queried a local SQLite database.
 - SQL queuries grouped by key demographics.
-- Prepares groundwork for visualizations or dashboarding. 
+- Prepares groundwork for visualizations or dashboarding.
+
+## Limitations & Next Steps
+
+## 1. Include More Demographic Data:
+   The current dataset lacks geogrphic or socioeconomic indictors. Adding zip code,        income level, or insurance status will allow for mor targeted public health 
+   recommendations. 
+
+## 2. Time-Based Analysis:
+   Incorporating year-over-year data will allow for trend analysis, such as whether   
+   obesity or physical activity rates are increasing over time. 
+
+## 3. Predictive Modeling:
+   With additional data, building a logistic representation regression or decision tree 
+   model can help predict diabetes likelihood based on user profiles. 
+
+## 4. Interactive Dashboard:
+   Cross-reference this sample with CDC national diabetes statistics to see how 
+   representative the data is. 
+   
 
 
 ## How to Run
